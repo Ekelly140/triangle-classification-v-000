@@ -1,5 +1,7 @@
+
 class Triangle
   attr_accessor :side1, :side2, :side3
+ 
   def initialize(side1,side2,side3)
     @side1 = side1
     @side2 = side2
@@ -7,24 +9,28 @@ class Triangle
   end 
   
   def kind 
-    if (@side1 == @side2 && @side1 == @side3) && @side1 != 0
-      :equilateral
-    elsif @side1 == @side2 || @side1 == @side3 || @side2 == @side3
-      :isosceles
-    elsif (@side1 != @side2 && @side1 != @side3 && @side2 != @side3
-      :scalene
-    else 
+     
+      if @side1 < 1 || @side2 < 1 || @side3 < 1 
         begin
         raise TriangleError
-      rescue TriangleError => error
+        rescue TriangleError => error
           puts error.message
-      end
-    end 
+        end 
+      end 
+    
+    if (@side1 == @side2 && @side1 == @side3) 
+      :equilateral
+    elsif (@side1 == @side2 || @side1 == @side3 || @side2 == @side3) 
+      :isosceles
+    elsif (@side1 != @side2 && @side1 != @side3 && @side2 != @side3) 
+      :scalene
+    end
+     
   end 
   
-  class TriangleError < StnadardError 
+  class TriangleError < StandardError 
       def message 
       "Invalid Side Length"
-    end
+      end
   end 
 end
