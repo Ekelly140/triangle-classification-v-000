@@ -21,9 +21,9 @@ class Triangle
     
     if (@a == @b && @a == @c) 
       :equilateral
-    elsif (@a == @b || @a == @c || @b == @side3) 
+    elsif (@a == @b || @a == @c || @b == @c) 
       :isosceles
-    elsif (@side1 != @side2 && @side1 != @side3 && @side2 != @side3) 
+    elsif (@a != @b && @a != @c && @b != @c) 
       :scalene
     end
      
