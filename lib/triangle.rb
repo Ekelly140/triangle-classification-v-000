@@ -19,9 +19,9 @@ class Triangle
      
     self.validate_triangle
     
-    if (@side1 == @side2 && @side1 == @side3) 
+    if (@a == @b && @a == @c) 
       :equilateral
-    elsif (@side1 == @side2 || @side1 == @side3 || @side2 == @side3) 
+    elsif (@a == @b || @a == @c || @b == @side3) 
       :isosceles
     elsif (@side1 != @side2 && @side1 != @side3 && @side2 != @side3) 
       :scalene
