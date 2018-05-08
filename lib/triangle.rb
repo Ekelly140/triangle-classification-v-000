@@ -8,15 +8,15 @@ class Triangle
     @side3 = side3
   end 
   
+  def validate_triangle 
+    
+     
+    
+  end 
+  
   def kind 
      
-      if @side1 < 1 || @side2 < 1 || @side3 < 1 
-        begin
-        raise TriangleError
-        rescue TriangleError => error
-          puts error.message
-        end 
-      end 
+    self.validate_triangle
     
     if (@side1 == @side2 && @side1 == @side3) 
       :equilateral
