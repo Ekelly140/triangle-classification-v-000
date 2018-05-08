@@ -3,16 +3,17 @@ class Triangle
   attr_accessor :side1, :side2, :side3
  
   def initialize(side1,side2,side3)
-    @side1 = side1
-    @side2 = side2
-    @side3 = side3
+    @a = side1
+    @b = side2
+    @c = side3
   end 
   
-  def validate_triangle 
-    
-     
-    
-  end 
+   def validate_triangle
+    real_triangle = [(@a + @b > @c), (@a + @c > @b), (@b + @c > @a)]
+    [@a, @b, @c].each { |s| real_triangle << false if s <= 0 }
+    raise TriangleError if real_triangle.include?(false)
+  end
+
   
   def kind 
      
